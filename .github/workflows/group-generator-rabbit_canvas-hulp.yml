@@ -1,0 +1,75 @@
+name: Build and deploy JAR app - canvas
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Java version
+        uses: actions/setup-java@v1
+        with:
+          java-version: '17'
+
+      - name: Build project with Maven
+        run: mvn clean package
+
+      - name: List target directory
+        run: |
+          echo "Listing target directory:"
+          ls -la **/target/*.jar
+
+      - name: Upload JAR artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: jar-artifacts
+          path: '**/target/*.jar'
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: 'Production'
+
+    steps:
+      - name: Download JAR artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: jar-artifacts
+
+      - name: Set up SSH private key
+        run: echo "${{secrets.AZUREKEY}}" > $GITHUB_WORKSPACE/azure_key.pem
+
+      - name: Set permissions on the SSH key
+        run: chmod 600 $GITHUB_WORKSPACE/azure_key.pem
+
+      - name: Test SSH connection to VM
+        run: |
+          echo "Testing SSH connection to VM:"
+          ssh -o StrictHostKeyChecking=no -i $GITHUB_WORKSPACE/azure_key.pem azureuser@${{secrets.AZURE_VM_IP}} 'echo "SSH connection successful!"'
+
+      - name: Check target directory
+        run: ls -la **/target/
+
+      - name: List JAR files
+        run: find . -name "*.jar"
+
+      - name: Deploy and start JAR applications
+        run: |
+          for JAR in $(find . -name "*.jar"); do
+            APP_NAME=$(basename $JAR | cut -d '-' -f 1)
+            echo "Deploying $APP_NAME..."
+          
+            scp -o StrictHostKeyChecking=no -i $GITHUB_WORKSPACE/azure_key.pem $JAR azureuser@${{secrets.AZURE_VM_IP}}:/home/azureuser/
+            ssh -o StrictHostKeyChecking=no -i $GITHUB_WORKSPACE/azure_key.pem azureuser@${{secrets.AZURE_VM_IP}} \
+              "nohup java -jar /home/azureuser/$(basename $JAR) > /dev/null 2>&1 &"
+            sleep 10
+          done
