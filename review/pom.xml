@@ -9,7 +9,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>peer-review</artifactId>
+    <artifactId>review</artifactId>
 
     <properties>
         <maven.compiler.source>22</maven.compiler.source>

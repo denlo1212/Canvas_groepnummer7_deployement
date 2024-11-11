@@ -21,8 +21,7 @@
 	<modules>
 		<module>group-generator</module>
 		<module>registrations</module>
-		<module>peer-review</module>
-		<module>teacher-review</module>
+		<module>review</module>
 		<module>student-handler</module>
 		<module>assignments</module>
 		<module>message-config</module>
