@@ -25,5 +25,4 @@ Hoewel je geen GitHub-koppeling kunt instellen op een Virtual Machine, kun je di
     - Zet de Azure key in je github secrets. Voeg de **Azure key** toe in de `.yml` via de secrets
 
 4. ## stap 4
-test
     
