@@ -25,10 +25,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8081/course/add",
+							"raw": "http://{{baseUrl}}:8081/course/add",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
 							"port": "8081",
 							"path": [
@@ -45,10 +45,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/course/24-TICT-SV3INNO-23",
+							"raw": "http://{{baseUrl}}:8081/course/24-TICT-SV3INNO-23",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
 							"port": "8081",
 							"path": [
@@ -74,16 +74,16 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/course/update/{id}",
+							"raw": "http://{{baseUrl}}:8081/course/update/{24-TICT-SV3INNO-23}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
+							"port": "8081",
 							"path": [
 								"course",
 								"update",
-								"{id}"
+								"{24-TICT-SV3INNO-23}"
 							]
 						}
 					},
@@ -95,37 +95,16 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/course/delete/{id}",
+							"raw": "http://{{baseUrl}}:8081/course/delete/{id}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
+							"port": "8081",
 							"path": [
 								"course",
 								"delete",
 								"{id}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GenerateClasses",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8084/course/generate/24-TICT-SV3INNO-23",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8084",
-							"path": [
-								"course",
-								"generate",
-								"24-TICT-SV3INNO-23"
 							]
 						}
 					},
@@ -151,12 +130,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8082/student/add",
+							"raw": "http://{{baseUrl}}:8083/student/add",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8082",
+							"port": "8083",
 							"path": [
 								"student",
 								"add"
@@ -171,12 +150,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/student/{StudentID}",
+							"raw": "http://{{baseUrl}}:8083/student/{StudentID}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
+							"port": "8083",
 							"path": [
 								"student",
 								"{StudentID}"
@@ -200,12 +179,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/student/update/{id}",
+							"raw": "http://{{baseUrl}}:8083/student/update/{id}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
+							"port": "8083",
 							"path": [
 								"student",
 								"update",
@@ -221,12 +200,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/student/delete/{id}",
+							"raw": "http://{{baseUrl}}:8083/student/delete/{id}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
+							"port": "8083",
 							"path": [
 								"student",
 								"delete",
@@ -243,7 +222,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "// change the id's to the actual id's that you are using right now\r\n\r\n{\r\n    \"studentId\": 1,\r\n    \"preferenceId\": 2\r\n}\r\n",
+							"raw": "// change the id's to the actual id's that you are using right now\r\n\r\n{\r\n    \"studentId\": 1888123,\r\n    \"preferenceId\": 1888124\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -251,12 +230,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/student/preference",
+							"raw": "http://{{baseUrl}}:8083/student/preference",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
+							"port": "8083",
 							"path": [
 								"student",
 								"preference"
@@ -285,10 +264,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8081/registration/add",
+							"raw": "http://{{baseUrl}}:8081/registration/add",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
 							"port": "8081",
 							"path": [
@@ -305,10 +284,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/registration/{id}",
+							"raw": "http://{{baseUrl}}:8081/registration/{id}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
 							"port": "8081",
 							"path": [
@@ -325,10 +304,10 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/registration/delete/{id}",
+							"raw": "http://{{baseUrl}}:8081/registration/delete/{id}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
 							"port": "8081",
 							"path": [
@@ -355,10 +334,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8081/registration/update/1",
+							"raw": "http://{{baseUrl}}:8081/registration/update/1",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
 							"port": "8081",
 							"path": [
@@ -390,10 +369,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/teachers/teacher",
+							"raw": "http://{{baseUrl}}:8080/teachers/teacher",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
 							"port": "8080",
 							"path": [
@@ -424,10 +403,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/review/teacher/1/submission/1",
+							"raw": "http://{{baseUrl}}:8080/review/teacher/1/submission/1",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
 							"port": "8080",
 							"path": [
@@ -766,10 +745,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/teams/assignment/{assignmentID}",
+							"raw": "http://{{baseUrl}}:8080/teams/assignment/{assignmentID}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
 							"port": "8080",
 							"path": [
@@ -787,10 +766,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/teams/{teamsID}",
+							"raw": "http://{{baseUrl}}:8080/teams/{teamsID}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
 							"port": "8080",
 							"path": [
