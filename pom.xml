@@ -24,7 +24,6 @@
 		<module>review</module>
 		<module>student-handler</module>
 		<module>assignments</module>
-		<module>message-config</module>
 		<module>schedule</module>
 	</modules>
 
